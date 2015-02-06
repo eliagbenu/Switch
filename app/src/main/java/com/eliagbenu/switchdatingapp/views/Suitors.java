@@ -31,6 +31,9 @@ public class Suitors extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_suitors);
 
 
@@ -188,6 +191,8 @@ public class Suitors extends ActionBarActivity {
     }
 
     public void addTestMaleUsers(UserListAdapter adapter){
+
+        String url = AppController.API_URL+"rest-auth/registration/";
 
         User newUser1 = new User("Nathan", "I am in the UK", "I like stuff all stuff", "MALE");
         User newUser2 = new User("Stephen", "San Diego","I like stuff all stuff", "MALE");

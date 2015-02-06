@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:text="@string/getStarted"
             android:id="@+id/buttonGetStarted"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            android:background="@color/button_color" />
 
 
     </LinearLayout>

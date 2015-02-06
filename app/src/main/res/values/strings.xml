@@ -33,6 +33,7 @@
     <string name="girl">GIRL</string>
     <string name="no">No</string>
     <string name="action_profile">Profile</string>
+    <string name="date">Date</string>
     <string name="proposal_prompt">Accept proposal?</string>
     <string name="action_questions">Questions</string>
     <string name="title_activity_questions">Qestions for you</string>

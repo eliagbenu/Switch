@@ -6,12 +6,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.eliagbenu.switchdatingapp.views.Login">
+    tools:context="com.eliagbenu.switchdatingapp.views.Login"
+    android:id="@+id/linearLayout1"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="0dp"
+        android:id="@+id/layout2"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +32,10 @@
             android:text="Name"
             android:ems="10"
             android:id="@+id/editTextUsername"
-            android:hint="@string/username_or_email" />
+            android:hint="@string/username_or_email"
+            android:layout_below="@+id/textViewError"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
         <EditText
@@ -37,15 +44,39 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/editTextPassword"
-            android:hint="@string/password_here" />
+            android:hint="@string/password_here"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/login"
-            android:id="@+id/buttonLogin" />
-    </LinearLayout>
+            android:id="@+id/buttonLogin"
+            android:background="@color/button_color"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:id="@+id/layout3"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"
+            android:id="@+id/buttonSignup"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/button_color" />
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.eliagbenu.switchdatingapp.R;
 import com.eliagbenu.switchdatingapp.controller.AppController;
+import com.eliagbenu.switchdatingapp.utils.VolleySingleton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -104,6 +105,9 @@ public class Signup extends ActionBarActivity {
         editor.commit();
 
         String url = AppController.API_URL+"rest-auth/registration/";
+        // Get a RequestQueue
+        RequestQueue queue = VolleySingleton.getInstance(this.getApplicationContext()).
+                getRequestQueue();
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
@@ -126,15 +130,18 @@ public class Signup extends ActionBarActivity {
             @Override
             protected Map<String, String> getParams()
             {
-                Map<String, String> params = new HashMap<String, String>();
+                Map<String, String>  params = new HashMap<String, String>();
+
+                params.put("token", "322f7d24ecfa9f7bff760ef755da75f8e8e3e288");
                 params.put("username", username);
-                params.put("password", password);
                 params.put("email", email);
+                params.put("password", password);
 
                 return params;
             }
         };
-        AppController.queue.add(postRequest);
+        queue.add(postRequest);
+
     }
 
     @Override
