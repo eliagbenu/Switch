@@ -29,5 +29,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="action_profile">Profile</string>
+    <string name="proposal_prompt">Accept proposal?</string>
 
 </resources>

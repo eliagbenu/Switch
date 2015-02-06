@@ -10,13 +10,15 @@ public class AppController extends Application {
 
     final public static String PREF_NAME = "switch_pref";
     boolean signUpStatus;
+    boolean genderStatus;
 
-    //pick saved users frm api
+/*    //pick saved users frm api
     public boolean getSignedUpStatus(){
 
         SharedPreferences settings = getSharedPreferences(PREF_NAME,0);
 
         String username = settings.getString("username","");
+
 
         if (!username.isEmpty()){
             signUpStatus=true;
@@ -25,7 +27,26 @@ public class AppController extends Application {
         }
 
         return signUpStatus;
+    }*/
+
+/*
+    public boolean getGender(){
+
+        SharedPreferences settings = getSharedPreferences(PREF_NAME,0);
+
+        String gender = settings.getString("gender","");
+
+        if (!gender.isEmpty() && gender=="MALE"){
+            genderStatus=true;
+        }else if(!gender.isEmpty() && gender=="FEMALE"){
+            genderStatus=false;
+        }else{
+            genderStatus=false;
+        }
+
+        return genderStatus;
     }
+*/
 
 
 }

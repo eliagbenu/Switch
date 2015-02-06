@@ -1,6 +1,7 @@
 package com.eliagbenu.switchdatingapp.views;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,13 +18,29 @@ public class Splash extends ActionBarActivity {
     private static int SPLASH_TIME_OUT = 3000;
     Intent launchSuitorsActivity;
     Intent launchNextActivity;
+    boolean signUpStatus;
 
+    public boolean getSignedUpStatus(){
+
+        SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
+
+        String username = settings.getString("username","");
+
+
+        if (!username.isEmpty()){
+            signUpStatus=true;
+        }else{
+            signUpStatus=false;
+        }
+
+        return signUpStatus;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        signedUpStatus = false;
+        signedUpStatus = getSignedUpStatus();
 
         if(signedUpStatus){
 

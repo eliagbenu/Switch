@@ -32,6 +32,7 @@ public class Profile extends FragmentActivity {
     TextView textViewDOB,textSwitchStatus,textViewGender;
     EditText     editTextInterest ,  editTextPitch  ;
     private Switch switchGender;
+    boolean genderStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,15 @@ public class Profile extends FragmentActivity {
 
         textSwitchStatus = (TextView) findViewById(R.id.textSwitchStatus);
         switchGender = (Switch) findViewById(R.id.switchGender);
+        textViewGender  = (TextView) findViewById(R.id.textViewGender);
 
         //set the switch to ON
-        switchGender.setChecked(true);
+        if(getGender()){
+            switchGender.setChecked(true);
+        }else{
+            switchGender.setChecked(false);
+        }
+
         //attach a listener to check for changes in state
         switchGender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -80,6 +87,21 @@ public class Profile extends FragmentActivity {
 
         cancelClick();
         saveClick();
+    }
+
+    public boolean getGender(){
+
+        SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
+
+        String gender = settings.getString("gender","");
+
+        if (!gender.isEmpty() && gender=="MALE"){
+            genderStatus=true;
+        }else if(!gender.isEmpty() && gender=="FEMALE"){
+            genderStatus=false;
+        }
+
+        return genderStatus;
     }
 
     public void saveClick() {

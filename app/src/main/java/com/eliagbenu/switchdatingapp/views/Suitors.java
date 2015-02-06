@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
@@ -17,12 +18,14 @@ import android.widget.Toast;
 
 import com.eliagbenu.switchdatingapp.R;
 import com.eliagbenu.switchdatingapp.adapter.UserListAdapter;
+import com.eliagbenu.switchdatingapp.controller.AppController;
 import com.eliagbenu.switchdatingapp.models.User;
 
 import java.util.ArrayList;
 
 public class Suitors extends ActionBarActivity {
-
+    AppController appController;
+    boolean genderStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,8 @@ public class Suitors extends ActionBarActivity {
         // Create the adapter to convert the array to views
         UserListAdapter adapter = new UserListAdapter(this, arrayOfUsers);
 
-        boolean gender = true;
+        boolean gender = getGender();
+
         //based on gender of user
         if(gender){
 
@@ -49,25 +53,98 @@ public class Suitors extends ActionBarActivity {
         }
 
 
-        // Attach the adapter to a ListView
+
         ListView listView = (ListView) findViewById(R.id.userList);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-                        .show();
+        if(gender){
 
-                expressInterest( position );
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    Toast.makeText(getApplicationContext(),
+                            "Express interest " + position, Toast.LENGTH_LONG)
+                            .show();
 
-            }
-        });
+                    expressInterest( position );
+
+                }
+            });
+
+        }else{
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    Toast.makeText(getApplicationContext(),
+                            "Express interest " + position, Toast.LENGTH_LONG)
+                            .show();
+
+                    acceptProposal( position );
+
+                }
+            });
+
+        }
 
     }
 
+
+    public void acceptProposal(Integer position){
+        // get xml view
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.proposal_prompt, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Yea...I like him",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+
+                                //send lady interest proposal
+
+                            }
+                        })
+                .setNegativeButton("Like seriously..",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+    }
+
+    public boolean getGender(){
+
+        SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
+
+        String gender = settings.getString("gender","");
+
+        if (!gender.isEmpty() && gender=="MALE"){
+            genderStatus=true;
+        }else if(!gender.isEmpty() && gender=="FEMALE"){
+            genderStatus=false;
+        }
+
+        return genderStatus;
+    }
 
     public void expressInterest(Integer position){
         // get xml view
