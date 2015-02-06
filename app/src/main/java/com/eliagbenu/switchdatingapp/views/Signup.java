@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.eliagbenu.switchdatingapp.R;
+import com.eliagbenu.switchdatingapp.controller.AppController;
 
 public class Signup extends ActionBarActivity {
     Button buttonSignup, buttonLogin;
@@ -71,7 +72,7 @@ public class Signup extends ActionBarActivity {
             textViewError.setVisibility(View.VISIBLE);
         }else{
 
-            SharedPreferences settings = getSharedPreferences("switch_pref",0);
+            SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("username", editTextUsername.getText().toString());
             editor.putString("password",editTextPassword.getText().toString());

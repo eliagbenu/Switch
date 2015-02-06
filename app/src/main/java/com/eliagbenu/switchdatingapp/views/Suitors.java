@@ -1,9 +1,13 @@
 package com.eliagbenu.switchdatingapp.views;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,18 +48,6 @@ public class Suitors extends ActionBarActivity {
 
         }
 
-    }
-
-
-    public void addTestMaleUsers(UserListAdapter adapter){
-
-        User newUser1 = new User("Nathan", "I am in the UK");
-        User newUser2 = new User("Stephen", "San Diego");
-        User newUser3 = new User("Timothy", "I jump");
-
-        adapter.add(newUser1);
-        adapter.add(newUser2);
-        adapter.add(newUser3);
 
         // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.userList);
@@ -69,10 +61,61 @@ public class Suitors extends ActionBarActivity {
                         "Click ListItem Number " + position, Toast.LENGTH_LONG)
                         .show();
 
+                expressInterest( position );
 
             }
         });
 
+    }
+
+
+    public void expressInterest(Integer position){
+        // get xml view
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.interest_prompt, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(promptsView);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Oh yea",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                // get user input and set it to result
+                                // edit text
+
+                                //send lady interest proposal
+
+                            }
+                        })
+                .setNegativeButton("Nope",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    public void addTestMaleUsers(UserListAdapter adapter){
+
+        User newUser1 = new User("Nathan", "I am in the UK");
+        User newUser2 = new User("Stephen", "San Diego");
+        User newUser3 = new User("Timothy", "I jump");
+
+        adapter.add(newUser1);
+        adapter.add(newUser2);
+        adapter.add(newUser3);
 
     }
 
@@ -85,20 +128,6 @@ public class Suitors extends ActionBarActivity {
         adapter.add(newUser1);
         adapter.add(newUser2);
         adapter.add(newUser3);
-
-        // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.userFemaleList);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        "Click ListItem Number " + position, Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
 
     }
 
@@ -117,10 +146,17 @@ public class Suitors extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_profile) {
+            profileScreen();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void profileScreen(){
+        Intent profileIntent = new Intent(this,Profile.class);
+        startActivity(profileIntent);
+    }
 }
+

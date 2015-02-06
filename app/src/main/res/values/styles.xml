@@ -5,4 +5,24 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <style name="SwitchTheme"
+        parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/SwitchActionBarTheme</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/SwitchTheme</item>
+    </style>
+
+
+    <!-- ActionBar styles -->
+    <style name="SwitchActionBarTheme"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/background</item>
+        <item name="android:icon">@drawable/ic_launcher</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/background</item>
+    </style>
+
 </resources>

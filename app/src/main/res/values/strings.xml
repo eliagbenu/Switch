@@ -25,5 +25,9 @@
     <string name="signup_error">Kindly check your signup credentials</string>
     <string name="proposals_made">Proposals made</string>
     <string name="title_activity_signin">Signin</string>
+    <string name="express_interest">Express interest</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="action_profile">Profile</string>
 
 </resources>

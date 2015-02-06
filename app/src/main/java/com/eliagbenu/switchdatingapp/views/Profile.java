@@ -2,6 +2,7 @@ package com.eliagbenu.switchdatingapp.views;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,11 +13,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eliagbenu.switchdatingapp.R;
+import com.eliagbenu.switchdatingapp.controller.AppController;
 import com.eliagbenu.switchdatingapp.fragments.DatePickerFragment;
 
 import org.joda.time.DateTime;
@@ -26,8 +29,8 @@ import java.util.Calendar;
 
 public class Profile extends FragmentActivity {
     Button buttonDOB, buttonSave, buttonCancel;
-    TextView textViewDOB;
-    private TextView textSwitchStatus;
+    TextView textViewDOB,textSwitchStatus,textViewGender;
+    EditText     editTextInterest ,  editTextPitch  ;
     private Switch switchGender;
 
     @Override
@@ -49,8 +52,10 @@ public class Profile extends FragmentActivity {
 
                 if(isChecked){
                     textSwitchStatus.setText("OK- you are a guy");
+                    textViewGender.setText("MALE");
                 }else{
                     textSwitchStatus.setText("OK- you are a girl");
+                    textViewGender.setText("FEMALE");
                 }
 
             }
@@ -84,6 +89,8 @@ public class Profile extends FragmentActivity {
         buttonSave.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
+
+                saveProfile();
                 Intent saveIntent = new Intent(getApplicationContext(),Suitors.class);
                 startActivity(saveIntent);
             }
@@ -102,6 +109,22 @@ public class Profile extends FragmentActivity {
         });
     }
 
+
+    public void saveProfile(){
+        editTextInterest = (EditText) findViewById(R.id.editTextInterest);
+        editTextPitch = (EditText) findViewById(R.id.editTextPitch);
+        textViewGender = (TextView) findViewById(R.id.textViewGender);
+        textViewDOB = (TextView) findViewById(R.id.textViewDOB);
+
+        SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("pitch", editTextPitch.getText().toString());
+        editor.putString("interest",editTextInterest.getText().toString());
+        editor.putString("gender",textViewGender.getText().toString());
+        editor.putString("dob", textViewDOB.getText().toString());
+        editor.commit();
+
+    }
 
     private void showDatePicker() {
         DatePickerFragment date = new DatePickerFragment();
