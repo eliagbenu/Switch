@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,8 @@ public class Profile extends FragmentActivity {
     TextView textViewDOB,textSwitchStatus,textViewGender;
     EditText     editTextInterest ,  editTextPitch  ;
     private Switch switchGender;
+    String female_greeting = "Whats up Sister";
+    String male_greeting = "Whats up Bro";
     boolean genderStatus;
 
     @Override
@@ -43,8 +46,9 @@ public class Profile extends FragmentActivity {
         switchGender = (Switch) findViewById(R.id.switchGender);
         textViewGender  = (TextView) findViewById(R.id.textViewGender);
 
+        boolean gender = getGender();
         //set the switch to ON
-        if(getGender()){
+        if(gender){
             switchGender.setChecked(true);
         }else{
             switchGender.setChecked(false);
@@ -58,10 +62,10 @@ public class Profile extends FragmentActivity {
                                          boolean isChecked) {
 
                 if(isChecked){
-                    textSwitchStatus.setText("OK- you are a guy");
+                    textSwitchStatus.setText(male_greeting);
                     textViewGender.setText("MALE");
                 }else{
-                    textSwitchStatus.setText("OK- you are a girl");
+                    textSwitchStatus.setText(female_greeting);
                     textViewGender.setText("FEMALE");
                 }
 
@@ -70,10 +74,12 @@ public class Profile extends FragmentActivity {
 
         //check the current state before we display the screen
         if(switchGender.isChecked()){
-            textSwitchStatus.setText("OK- you are a guy");
+            textSwitchStatus.setText(male_greeting);
+            textViewGender.setText("MALE");
         }
         else {
-            textSwitchStatus.setText("OK- you are a girl");
+            textSwitchStatus.setText(female_greeting);
+            textViewGender.setText("FEMALE");
         }
 
 
@@ -100,6 +106,7 @@ public class Profile extends FragmentActivity {
         }else if(!gender.isEmpty() && gender=="FEMALE"){
             genderStatus=false;
         }
+
 
         return genderStatus;
     }
@@ -138,12 +145,15 @@ public class Profile extends FragmentActivity {
         textViewGender = (TextView) findViewById(R.id.textViewGender);
         textViewDOB = (TextView) findViewById(R.id.textViewDOB);
 
+
         SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("pitch", editTextPitch.getText().toString());
         editor.putString("interest",editTextInterest.getText().toString());
         editor.putString("gender",textViewGender.getText().toString());
         editor.putString("dob", textViewDOB.getText().toString());
+
+
         editor.commit();
 
     }

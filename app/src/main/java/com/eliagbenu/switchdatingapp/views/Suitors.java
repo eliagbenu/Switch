@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class Suitors extends ActionBarActivity {
     AppController appController;
     boolean genderStatus;
+    String gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +39,8 @@ public class Suitors extends ActionBarActivity {
         // Create the adapter to convert the array to views
         UserListAdapter adapter = new UserListAdapter(this, arrayOfUsers);
 
-        boolean gender = getGender();
-
         //based on gender of user
-        if(gender){
+        if(getGender()){
 
             //adding test data- FOR TESTING ONLY
             addTestFemaleUsers(adapter);
@@ -57,7 +57,7 @@ public class Suitors extends ActionBarActivity {
         ListView listView = (ListView) findViewById(R.id.userList);
         listView.setAdapter(adapter);
 
-        if(gender){
+        if(getGender()){
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -135,13 +135,17 @@ public class Suitors extends ActionBarActivity {
 
         SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
 
-        String gender = settings.getString("gender","");
+        gender = settings.getString("gender","");
 
-        if (!gender.isEmpty() && gender=="MALE"){
-            genderStatus=true;
-        }else if(!gender.isEmpty() && gender=="FEMALE"){
-            genderStatus=false;
+        if (gender.equalsIgnoreCase("MALE") ){
+            genderStatus = true;
+        }else if(gender.equalsIgnoreCase("FEMALE") ){
+            genderStatus = false;
+        }else{
+            genderStatus = false;
         }
+
+        Log.e("xxxxxxxxxx",""+genderStatus+gender);
 
         return genderStatus;
     }

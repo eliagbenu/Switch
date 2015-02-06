@@ -10,7 +10,7 @@ public class AppController extends Application {
 
     final public static String PREF_NAME = "switch_pref";
     boolean signUpStatus;
-    boolean genderStatus;
+
 
 /*    //pick saved users frm api
     public boolean getSignedUpStatus(){
