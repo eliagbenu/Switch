@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,13 +12,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.eliagbenu.switchdatingapp.R;
 import com.eliagbenu.switchdatingapp.controller.AppController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Signup extends ActionBarActivity {
     Button buttonSignup, buttonLogin;
-    EditText editTextUsername,editTextPassword;
+    EditText editTextUsername,editTextPassword,editTextEmail;
     TextView textViewError;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +77,64 @@ public class Signup extends ActionBarActivity {
     public void checkSignupDetails(){
          editTextUsername = (EditText) findViewById(R.id.editTextPassword);
          editTextPassword= (EditText) findViewById(R.id.editTextUsername);
+        editTextEmail= (EditText) findViewById(R.id.editTextEmail);
 
         String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
+        String email = editTextEmail.getText().toString();
 
         if(username=="" || password ==""){
             textViewError = (TextView) findViewById(R.id.textViewError);
             textViewError.setVisibility(View.VISIBLE);
         }else{
 
-            SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("username", editTextUsername.getText().toString());
-            editor.putString("password",editTextPassword.getText().toString());
-            editor.putBoolean("signup", true);
-            editor.commit();
-
+            saveDetails(username,email,password);
         }
+    }
 
 
+    public void saveDetails(final String username,final String email,final String password){
+
+        SharedPreferences settings = getSharedPreferences(AppController.PREF_NAME,0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("email", email);
+        editor.putString("username", username);
+        editor.putString("password",password);
+        editor.putBoolean("signup", true);
+        editor.commit();
+
+        String url = AppController.API_URL+"rest-auth/registration/";
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("Response", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", error.toString());
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("username", username);
+                params.put("password", password);
+                params.put("email", email);
+
+                return params;
+            }
+        };
+        AppController.queue.add(postRequest);
     }
 
     @Override

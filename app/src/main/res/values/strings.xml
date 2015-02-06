@@ -48,6 +48,8 @@
     <string name="title_screen_slide">Screen</string>
     <string name="title_template_step">Step <xliff:g id="step_number">%1$d</xliff:g></string>
     <string name="title_activity_initial">Initial</string>
+    <string name="username_here">Username comes here</string>
+    <string name="email_here">Email comes here</string>
     <string name="getStarted">Get Started</string>
     <string name="privacy_info">We protect your privacy. No information will be shared or posted.</string>
 

@@ -1,13 +1,17 @@
 package com.eliagbenu.switchdatingapp.views;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.eliagbenu.switchdatingapp.R;
 
 public class Initial extends ActionBarActivity {
+    Button buttonSignup, buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +19,41 @@ public class Initial extends ActionBarActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_initial);
+
+        signupClick();
+        loginClick();
+
     }
 
+    public void loginClick() {
+        buttonLogin = (Button) findViewById(R.id.buttonLogin);
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                //if all is well go to profile
+                Intent loginIntent = new Intent(getApplicationContext(),Login.class);
+                startActivity(loginIntent);
+
+            }
+        });
+    }
+
+    public void signupClick() {
+        buttonSignup = (Button) findViewById(R.id.buttonSignup);
+
+
+        buttonSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                //if all is well go to profile
+                Intent profileIntent = new Intent(getApplicationContext(),Signup.class);
+                startActivity(profileIntent);
+
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

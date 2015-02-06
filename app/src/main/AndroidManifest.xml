@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eliagbenu.switchdatingapp" >
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:name=".controller.AppController"
         android:allowBackup="true"
