@@ -10,19 +10,30 @@
         parent="@style/Theme.AppCompat.Light">
         <item name="android:actionBarStyle">@style/SwitchActionBarTheme</item>
 
-        <!-- Support library compatibility -->
-        <item name="actionBarStyle">@style/SwitchTheme</item>
+        <item name="background">@drawable/background</item>
+        <item name="android:windowBackground">@color/color_1</item>
+        <item name="android:colorBackground">@color/color_1</item>
+        <item name="android:editTextBackground">@color/color_3</item>
+        <item name="android:textColor">@color/color_3</item>
+        <item name="android:windowActionBar">false</item>
+
+
     </style>
 
 
     <!-- ActionBar styles -->
     <style name="SwitchActionBarTheme"
-        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/background</item>
+        parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/color_3</item>
         <item name="android:icon">@drawable/ic_launcher</item>
 
         <!-- Support library compatibility -->
-        <item name="background">@drawable/background</item>
+
+    </style>
+
+    <style name="NoTheme"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:windowBackground">@color/color_1</item>
     </style>
 
 </resources>

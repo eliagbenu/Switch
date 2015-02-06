@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">Switch</string>
     <string name="login">Login</string>
@@ -10,6 +10,7 @@
     <string name="pitch">Give  us your elevator pitch</string>
     <string name="title_activity_splash">Splash</string>
     <string name="splash_text">Splash screen here</string>
+    <string name="submit">Submit</string>
     <string name="title_activity_suitors">Suitors</string>
     <string name="list_of_suitors">List of suitors</string>
     <string name="title_activity_onboarding">Onboarding</string>
@@ -27,8 +28,27 @@
     <string name="title_activity_signin">Signin</string>
     <string name="express_interest">Express interest</string>
     <string name="yes">Yes</string>
+    <string name="welcome">Welcome</string>
+    <string name="guy">GUY</string>
+    <string name="girl">GIRL</string>
     <string name="no">No</string>
     <string name="action_profile">Profile</string>
     <string name="proposal_prompt">Accept proposal?</string>
+    <string name="action_questions">Questions</string>
+    <string name="title_activity_questions">Qestions for you</string>
+    <string name="sample_question">Why do you want to date?</string>
+    <string name="title_activity_more_details">MoreDetails</string>
+    <string name="comfirm_password_here">Confirm password</string>
+    <string name="action_previous">Previous</string>
+    <string name="action_next">Next</string>
+    <string name="action_finish">Finish</string>
+    <string name="lorem_ipsum">lorem_ipsum</string>
+    <string name="action_add_item">add item</string>
+    <string name="action_toggle">toggle</string>
+    <string name="title_screen_slide">Screen</string>
+    <string name="title_template_step">Step <xliff:g id="step_number">%1$d</xliff:g></string>
+    <string name="title_activity_initial">Initial</string>
+    <string name="getStarted">Get Started</string>
+    <string name="privacy_info">We protect your privacy. No information will be shared or posted.</string>
 
 </resources>

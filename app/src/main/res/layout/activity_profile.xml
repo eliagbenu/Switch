@@ -34,7 +34,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
-            android:text="What is your gender?" />
+            android:text="What is your gender?"
+            android:textOn="@string/guy"
+            android:textOff="@string/girl" />
 
         <TextView
             android:id="@+id/textSwitchStatus"

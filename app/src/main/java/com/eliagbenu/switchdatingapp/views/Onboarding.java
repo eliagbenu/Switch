@@ -1,22 +1,26 @@
 package com.eliagbenu.switchdatingapp.views;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 
 import com.eliagbenu.switchdatingapp.R;
 
-public class Onboarding extends ActionBarActivity {
+public class Onboarding extends FragmentActivity {
     Button buttonSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_onboarding);
         signupClick();
     }

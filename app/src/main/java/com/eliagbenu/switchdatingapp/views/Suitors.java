@@ -57,7 +57,8 @@ public class Suitors extends ActionBarActivity {
         ListView listView = (ListView) findViewById(R.id.userList);
         listView.setAdapter(adapter);
 
-        if(getGender()){
+        if(getGender())
+        {
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -109,10 +110,9 @@ public class Suitors extends ActionBarActivity {
                 .setPositiveButton("Yea...I like him",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
-                                // get user input and set it to result
-                                // edit text
 
-                                //send lady interest proposal
+                                Intent moreDetailsIntent = new Intent(getApplicationContext(), MoreDetails.class);
+                                startActivity(moreDetailsIntent);
 
                             }
                         })
@@ -145,7 +145,6 @@ public class Suitors extends ActionBarActivity {
             genderStatus = false;
         }
 
-        Log.e("xxxxxxxxxx",""+genderStatus+gender);
 
         return genderStatus;
     }
@@ -190,9 +189,9 @@ public class Suitors extends ActionBarActivity {
 
     public void addTestMaleUsers(UserListAdapter adapter){
 
-        User newUser1 = new User("Nathan", "I am in the UK");
-        User newUser2 = new User("Stephen", "San Diego");
-        User newUser3 = new User("Timothy", "I jump");
+        User newUser1 = new User("Nathan", "I am in the UK", "I like stuff all stuff", "MALE");
+        User newUser2 = new User("Stephen", "San Diego","I like stuff all stuff", "MALE");
+        User newUser3 = new User("Timothy", "I jump","I like stuff all stuff", "MALE");
 
         adapter.add(newUser1);
         adapter.add(newUser2);
@@ -202,9 +201,9 @@ public class Suitors extends ActionBarActivity {
 
     public void addTestFemaleUsers(UserListAdapter adapter){
 
-        User newUser1 = new User("Rejoice", "4");
-        User newUser2 = new User("Stella", "16");
-        User newUser3 = new User("Ernestina", "9");
+        User newUser1 = new User("Rejoice", "4","I like stuff", "FEMALE");
+        User newUser2 = new User("Stella", "16","I like stuff", "FEMALE");
+        User newUser3 = new User("Ernestina", "9","I like stuff", "FEMALE");
 
         adapter.add(newUser1);
         adapter.add(newUser2);
@@ -231,6 +230,10 @@ public class Suitors extends ActionBarActivity {
             profileScreen();
             return true;
         }
+        if (id == R.id.action_questions) {
+            questionsScreen();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -238,6 +241,11 @@ public class Suitors extends ActionBarActivity {
     public void profileScreen(){
         Intent profileIntent = new Intent(this,Profile.class);
         startActivity(profileIntent);
+    }
+
+    public void questionsScreen(){
+        Intent questionsIntent = new Intent(this,Questions.class);
+        startActivity(questionsIntent);
     }
 }
 

@@ -40,6 +40,7 @@ public class Profile extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_profile);
 
         textSwitchStatus = (TextView) findViewById(R.id.textSwitchStatus);

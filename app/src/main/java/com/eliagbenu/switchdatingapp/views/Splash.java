@@ -7,9 +7,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.eliagbenu.switchdatingapp.R;
 import com.eliagbenu.switchdatingapp.controller.AppController;
+import com.eliagbenu.switchdatingapp.models.User;
+
+import java.util.List;
 
 
 public class Splash extends ActionBarActivity {
@@ -38,7 +42,10 @@ public class Splash extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
 
         signedUpStatus = getSignedUpStatus();
 
@@ -57,7 +64,9 @@ public class Splash extends ActionBarActivity {
 
                 @Override
                 public void run() {
-                    launchNextActivity = new Intent(getApplicationContext(), Onboarding.class);
+
+                    ///launchNextActivity = new Intent(getApplicationContext(), Onboarding.class);
+                    launchNextActivity = new Intent(getApplicationContext(), ScreenSlideActivity.class);
                     startActivity(launchNextActivity);
                     finish();
                 }

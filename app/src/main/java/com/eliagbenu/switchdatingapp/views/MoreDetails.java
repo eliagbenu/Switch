@@ -10,36 +10,51 @@ import android.widget.Button;
 
 import com.eliagbenu.switchdatingapp.R;
 
-public class Login extends ActionBarActivity {
-    Button buttonLogin;
+public class MoreDetails extends ActionBarActivity {
 
+    Button buttonSubmit, buttonCancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_login);
-        loginClick();
+        setContentView(R.layout.activity_more_details);
+
+        submitClick();
+        cancelClick();
+
     }
 
-    public void loginClick() {
-        buttonLogin = (Button) findViewById(R.id.buttonLogin);
+    public void submitClick(){
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //if all is well go to profile
-                Intent suitorsIntent = new Intent(getApplicationContext(),Suitors.class);
-                startActivity(suitorsIntent);
-
+                Intent submitIntent = new Intent(getApplicationContext(), Suitors.class);
+                startActivity(submitIntent);
             }
         });
     }
 
+    public void cancelClick(){
+
+        buttonCancel = (Button) findViewById(R.id.buttonCancel);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent suitorIntent = new Intent(getApplicationContext(), Suitors.class);
+                startActivity(suitorIntent);
+            }
+        });
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_signin, menu);
+        getMenuInflater().inflate(R.menu.menu_more_details, menu);
         return true;
     }
 
