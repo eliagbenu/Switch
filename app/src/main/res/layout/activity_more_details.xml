@@ -11,37 +11,48 @@
     android:orientation="vertical">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout2"
+        android:layout_weight="1">
 
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/editTextMoreDetails" />
-    </LinearLayout>
+            android:id="@+id/editTextMoreDetails"
+            android:hint="@string/more_details"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout3"
+        android:layout_weight="1">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:id="@+id/buttonCancel" />
+            android:id="@+id/buttonCancel"
+            android:background="@color/button_color" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/submit"
-            android:id="@+id/buttonSubmit" />
-    </LinearLayout>
+            android:id="@+id/buttonSubmit"
+            android:background="@color/button_color"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
 </LinearLayout>

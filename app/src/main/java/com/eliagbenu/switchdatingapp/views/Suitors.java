@@ -98,8 +98,6 @@ public class Suitors extends ActionBarActivity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
 
-                                Intent moreDetailsIntent = new Intent(getApplicationContext(), MoreDetails.class);
-                                startActivity(moreDetailsIntent);
 
                             }
                         })

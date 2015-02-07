@@ -32,7 +32,7 @@ public class MoreDetails extends ActionBarActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent submitIntent = new Intent(getApplicationContext(), Suitors.class);
+                Intent submitIntent = new Intent(getApplicationContext(), Candidates.class);
                 startActivity(submitIntent);
             }
         });

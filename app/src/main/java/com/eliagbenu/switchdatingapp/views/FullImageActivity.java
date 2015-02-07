@@ -41,9 +41,9 @@ public class FullImageActivity extends ActionBarActivity {
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                //if all is well go to profile
-                Intent candidatesIntent = new Intent(getApplicationContext(),Candidates.class);
-                startActivity(candidatesIntent);
+
+                Intent moreDetailsIntent = new Intent(getApplicationContext(), MoreDetails.class);
+                startActivity(moreDetailsIntent);
 
             }
         });
