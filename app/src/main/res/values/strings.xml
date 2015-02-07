@@ -52,6 +52,9 @@
     <string name="username_here">Username comes here</string>
     <string name="email_here">Email comes here</string>
     <string name="getStarted">Get Started</string>
+    <string name="her_pitch">Message for you</string>
+    <string name="response_here">Response comes here</string>
+    <string name="question_here">Submit your question here</string>
     <string name="privacy_info">We protect your privacy. No information will be shared or posted.</string>
 
 </resources>

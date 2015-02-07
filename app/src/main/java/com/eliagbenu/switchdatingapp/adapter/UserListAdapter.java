@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eliagbenu.switchdatingapp.R;
@@ -23,16 +24,23 @@ public class UserListAdapter extends ArrayAdapter<User>
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         User user = getItem(position);
+
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_user, parent, false);
         }
+
         // Lookup view for data population
         TextView personName = (TextView) convertView.findViewById(R.id.textViewName);
-        TextView personAccountNumber = (TextView) convertView.findViewById(R.id.textViewPitch);
+        TextView personPitch = (TextView) convertView.findViewById(R.id.textViewPitch);
+        ImageView profilePix = (ImageView) convertView.findViewById(R.id.imageViewProfilePix);
+
         // Populate the data into the template view using the data object
         personName.setText(user.name);
-        personAccountNumber.setText(""+user.pitch);
+        personPitch.setText(""+user.pitch);
+
+        //profilePix.setImageResource(user.profilePix);
+
         // Return the completed view to render on screen
         return convertView;
     }

@@ -9,13 +9,15 @@ public class User
     public String pitch;
     public String interest;
     public String gender;
+    public int profilePix;
 
     public User(String name, String pitch, String interest,
-                String gender) {
+                String gender, int profilePix) {
         this.name = name;
         this.pitch = pitch;
         this.interest = interest;
         this.gender = gender;
+        this.profilePix = profilePix;
     }
 
 }

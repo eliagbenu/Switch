@@ -82,6 +82,10 @@ Funtional User testing was done by members of the team before the dealine, ie 8 
 # Known Issues
 
 --------------------------------------------------------
+Switch dating app was made to demonstrate the flow of how the app is to work.
+
+Consequently test data has been generated (for example make up test users as seen in addTestMaleUsers and addTestFemaleUsers )
+
 As as now no check has been made for disallowning an incorrect date , eg 2012-02-30
 
 

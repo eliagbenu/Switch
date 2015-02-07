@@ -25,9 +25,9 @@ import com.eliagbenu.switchdatingapp.models.User;
 import java.util.ArrayList;
 
 public class Suitors extends ActionBarActivity {
-    AppController appController;
     boolean genderStatus;
     String gender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +67,6 @@ public class Suitors extends ActionBarActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
-                    Toast.makeText(getApplicationContext(),
-                            "Express interest " + position, Toast.LENGTH_LONG)
-                            .show();
 
                     expressInterest( position );
 
@@ -82,9 +79,6 @@ public class Suitors extends ActionBarActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
-                    Toast.makeText(getApplicationContext(),
-                            "Express interest " + position, Toast.LENGTH_LONG)
-                            .show();
 
                     acceptProposal( position );
 
@@ -194,25 +188,37 @@ public class Suitors extends ActionBarActivity {
 
         String url = AppController.API_URL+"rest-auth/registration/";
 
-        User newUser1 = new User("Nathan", "I am in the UK", "I like stuff all stuff", "MALE");
-        User newUser2 = new User("Stephen", "San Diego","I like stuff all stuff", "MALE");
-        User newUser3 = new User("Timothy", "I jump","I like stuff all stuff", "MALE");
+        User newUser1 = new User("Nathan", "I am in the UK", "I like stuff all stuff", "MALE", R.drawable.profile_pix);
+        User newUser2 = new User("Ammish", "Takoradi","I am a poet", "MALE",R.drawable.profile_pix);
+        User newUser3 = new User("Stephen", "San Diego","I like stuff all stuff", "MALE",R.drawable.profile_pix);
+        User newUser4 = new User("Larry", "Accra","Data science and more", "MALE",R.drawable.profile_pix);
+        User newUser5 = new User("Godwin", "Kumasi","I cuddle after work", "MALE",R.drawable.profile_pix);
+        User newUser6 = new User("Eli", "Accra","I do not really cuddle", "MALE",R.drawable.profile_pix);
+        User newUser7 = new User("Timothy", "I jump","I like stuff all stuff", "MALE",R.drawable.profile_pix);
 
         adapter.add(newUser1);
         adapter.add(newUser2);
         adapter.add(newUser3);
+        adapter.add(newUser4);
+        adapter.add(newUser5);
+        adapter.add(newUser6);
+        adapter.add(newUser7);
 
     }
 
     public void addTestFemaleUsers(UserListAdapter adapter){
 
-        User newUser1 = new User("Rejoice", "4","I like stuff", "FEMALE");
-        User newUser2 = new User("Stella", "16","I like stuff", "FEMALE");
-        User newUser3 = new User("Ernestina", "9","I like stuff", "FEMALE");
+        User newUser1 = new User("Rejoice", "I bring joy into your life","I like stuff", "FEMALE",R.drawable.profile_pix);
+        User newUser2 = new User("Stella", "I make everyday interesting","I like stuff", "FEMALE",R.drawable.profile_pix);
+        User newUser3 = new User("Ernestina", "Lovingfor mr.right","I like stuff", "FEMALE",R.drawable.profile_pix);
+        User newUser4 = new User("Nancy", "Easy to please","I like stuff", "FEMALE",R.drawable.profile_pix);
+        User newUser5 = new User("Lady O", "I make chocolates","I like Chocolates", "FEMALE",R.drawable.profile_pix);
 
         adapter.add(newUser1);
         adapter.add(newUser2);
         adapter.add(newUser3);
+        adapter.add(newUser4);
+        adapter.add(newUser5);
 
     }
 

@@ -38,17 +38,16 @@
             android:id="@+id/layout7">
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/layout8">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Small Text"
                     android:id="@+id/textViewGender"
                     android:visibility="invisible" />
 
@@ -59,20 +58,20 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="20dp"
-                    android:text="What is your gender?"
                     android:textOn="@string/guy"
                     android:textOff="@string/girl"
                     android:textColor="@drawable/toggle_color" />
 
                 <TextView
                     android:id="@+id/textSwitchStatus"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@+id/genderSwitch"
                     android:layout_marginTop="22dp"
                     android:text="Medium Text"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout
@@ -139,16 +138,17 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:id="@+id/buttonCancel"
-            android:layout_weight="1"
             android:background="@color/button_color" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:id="@+id/buttonSave"
-            android:layout_weight="1"
-            android:background="@color/button_color" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:id="@+id/buttonSave"
+                android:background="@color/button_color"
+            android:layout_alignTop="@+id/buttonCancel"
+            android:layout_toLeftOf="@+id/buttonCancel"
+            android:layout_toStartOf="@+id/buttonCancel" />
     </LinearLayout>
 
 </LinearLayout>
