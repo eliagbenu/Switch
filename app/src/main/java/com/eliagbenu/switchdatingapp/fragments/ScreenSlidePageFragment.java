@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eliagbenu.switchdatingapp.R;
@@ -77,18 +78,21 @@ public class ScreenSlidePageFragment extends Fragment {
             textViewWalkThrou.setText("SIGNUP ON SWITCH");
             textViewWalkThrou.setTextColor(Color.WHITE);
             textViewWalkThrou.setVisibility(View.VISIBLE);
+            buttonGetStarted.setVisibility(View.INVISIBLE);
             break;
 
             case 1:
             textViewWalkThrou.setText("TELL THE WORLD ABOUT YOURSELF");
             textViewWalkThrou.setTextColor(Color.WHITE);
             textViewWalkThrou.setVisibility(View.VISIBLE);
+            buttonGetStarted.setVisibility(View.INVISIBLE);
             break;
 
             case 2:
             textViewWalkThrou.setText("EXPERIENCE SWITCH");
             textViewWalkThrou.setTextColor(Color.WHITE);
             textViewWalkThrou.setVisibility(View.VISIBLE);
+            buttonGetStarted.setVisibility(View.INVISIBLE);
             break;
 
             case 3:
@@ -103,7 +107,7 @@ public class ScreenSlidePageFragment extends Fragment {
                     }
                 });
             layout1_1.setBackgroundResource(R.drawable.get_started);
-            text1.setVisibility(View.INVISIBLE);
+            buttonGetStarted.setVisibility(View.VISIBLE);
             break;
 
             default:
