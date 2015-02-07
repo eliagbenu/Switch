@@ -2,6 +2,7 @@ package com.eliagbenu.switchdatingapp.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.eliagbenu.switchdatingapp.R;
@@ -63,20 +65,30 @@ public class ScreenSlidePageFragment extends Fragment {
         ((TextView) rootView.findViewById(android.R.id.text1)).setText(
                 getString(R.string.title_template_step, mPageNumber + 1));
 
-        ImageView imageView = ((ImageView) rootView.findViewById(R.id.imageView1));
+        TextView textViewWalkThrou = ((TextView) rootView.findViewById(R.id.textViewWalkThrou));
+        TextView text1 = ((TextView) rootView.findViewById(R.id.textView1));
+
         Button buttonGetStarted = ((Button) rootView.findViewById(R.id.buttonGetStarted));
+
+        LinearLayout layout1_1 = ((LinearLayout) rootView.findViewById(R.id.layout1_1));
 
         switch (mPageNumber){
             case 0:
-            imageView.setImageResource(R.drawable.onboarding_1);
+            textViewWalkThrou.setText("SIGNUP ON SWITCH");
+            textViewWalkThrou.setTextColor(Color.WHITE);
+            textViewWalkThrou.setVisibility(View.VISIBLE);
             break;
 
             case 1:
-            imageView.setImageResource(R.drawable.ic_launcher);
+            textViewWalkThrou.setText("TELL THE WORLD ABOUT YOURSELF");
+            textViewWalkThrou.setTextColor(Color.WHITE);
+            textViewWalkThrou.setVisibility(View.VISIBLE);
             break;
 
             case 2:
-            imageView.setImageResource(R.drawable.iic_launcher);
+            textViewWalkThrou.setText("EXPERIENCE SWITCH");
+            textViewWalkThrou.setTextColor(Color.WHITE);
+            textViewWalkThrou.setVisibility(View.VISIBLE);
             break;
 
             case 3:
@@ -85,15 +97,18 @@ public class ScreenSlidePageFragment extends Fragment {
                     @Override
                     public void onClick(View arg0) {
 
-                        Intent signupIntent = new Intent( getActivity() ,Initial.class);
+                        Intent signupIntent = new Intent(getActivity(), Initial.class);
                         startActivity(signupIntent);
 
                     }
                 });
+            layout1_1.setBackgroundResource(R.drawable.get_started);
+            text1.setVisibility(View.INVISIBLE);
             break;
 
             default:
-            imageView.setImageResource(R.drawable.onboarding_1);
+            textViewWalkThrou.setText("Find Love");
+            textViewWalkThrou.setVisibility(View.VISIBLE);
             break;
         }
         return rootView;

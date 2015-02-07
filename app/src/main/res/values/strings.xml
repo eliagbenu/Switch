@@ -18,7 +18,7 @@
     <string name="username_or_email">Enter username or email</string>
     <string name="title_activity_profile">Profile</string>
     <string name="profile_page">Profile page</string>
-    <string name="pick_a_dob">Pick your date of birth</string>
+    <string name="pick_a_dob">Birth date</string>
     <string name="interest">Your interest comes here</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancel">Cancel</string>

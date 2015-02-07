@@ -42,25 +42,23 @@ public class Suitors extends ActionBarActivity {
         // Create the adapter to convert the array to views
         UserListAdapter adapter = new UserListAdapter(this, arrayOfUsers);
 
-        //based on gender of user
-        if(getGender()){
-
-            //adding test data- FOR TESTING ONLY
-            addTestFemaleUsers(adapter);
-
-        }else{
-
-            //adding test data- FOR TESTING ONLY
-            addTestMaleUsers(adapter);
-
-        }
-
+        addTestMaleUsers(adapter);
 
 
         ListView listView = (ListView) findViewById(R.id.userList);
         listView.setAdapter(adapter);
 
-        if(getGender())
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                acceptProposal( position );
+
+            }
+        });
+
+/*        if(getGender())
         {
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,17 +73,9 @@ public class Suitors extends ActionBarActivity {
 
         }else{
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
 
-                    acceptProposal( position );
 
-                }
-            });
-
-        }
+        }*/
 
     }
 
@@ -188,21 +178,17 @@ public class Suitors extends ActionBarActivity {
 
         String url = AppController.API_URL+"rest-auth/registration/";
 
-        User newUser1 = new User("Nathan", "I am in the UK", "I like stuff all stuff", "MALE", R.drawable.profile_pix);
+        User newUser1 = new User("Eli", "Accra","I do not really cuddle", "MALE",R.drawable.profile_pix);
         User newUser2 = new User("Ammish", "Takoradi","I am a poet", "MALE",R.drawable.profile_pix);
         User newUser3 = new User("Stephen", "San Diego","I like stuff all stuff", "MALE",R.drawable.profile_pix);
         User newUser4 = new User("Larry", "Accra","Data science and more", "MALE",R.drawable.profile_pix);
         User newUser5 = new User("Godwin", "Kumasi","I cuddle after work", "MALE",R.drawable.profile_pix);
-        User newUser6 = new User("Eli", "Accra","I do not really cuddle", "MALE",R.drawable.profile_pix);
-        User newUser7 = new User("Timothy", "I jump","I like stuff all stuff", "MALE",R.drawable.profile_pix);
 
         adapter.add(newUser1);
         adapter.add(newUser2);
         adapter.add(newUser3);
         adapter.add(newUser4);
         adapter.add(newUser5);
-        adapter.add(newUser6);
-        adapter.add(newUser7);
 
     }
 

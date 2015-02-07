@@ -125,7 +125,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_width="fill_parent"
@@ -138,7 +138,10 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:id="@+id/buttonCancel"
-            android:background="@color/button_color" />
+            android:background="@color/button_color"
+            android:layout_alignBottom="@+id/buttonSave"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
                 android:layout_width="wrap_content"
@@ -146,9 +149,9 @@
                 android:text="@string/save"
                 android:id="@+id/buttonSave"
                 android:background="@color/button_color"
-            android:layout_alignTop="@+id/buttonCancel"
-            android:layout_toLeftOf="@+id/buttonCancel"
-            android:layout_toStartOf="@+id/buttonCancel" />
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
 </LinearLayout>

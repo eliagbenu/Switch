@@ -5,12 +5,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.eliagbenu.switchdatingapp.R;
 import com.eliagbenu.switchdatingapp.adapter.ImageAdapter;
 
 public class FullImageActivity extends ActionBarActivity {
+    Button buttonPass, buttonLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +30,38 @@ public class FullImageActivity extends ActionBarActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
         imageView.setImageResource(imageAdapter.mThumbIds[position]);
+
+        likeClick();
+        passClick();
     }
 
+    public void likeClick() {
+        buttonLike = (Button) findViewById(R.id.buttonLike);
+
+        buttonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                //if all is well go to profile
+                Intent candidatesIntent = new Intent(getApplicationContext(),Candidates.class);
+                startActivity(candidatesIntent);
+
+            }
+        });
+    }
+
+    public void passClick() {
+        buttonPass = (Button) findViewById(R.id.buttonPass);
+
+        buttonPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                //if all is well go to profile
+                Intent candidatesIntent = new Intent(getApplicationContext(),Candidates.class);
+                startActivity(candidatesIntent);
+
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

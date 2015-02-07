@@ -45,21 +45,6 @@ public class Signup extends ActionBarActivity {
 
         setContentView(R.layout.activity_signup);
         signupClick();
-        loginClick();
-    }
-
-    public void loginClick() {
-        buttonLogin = (Button) findViewById(R.id.buttonLogin);
-
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                //if all is well go to profile
-                Intent loginIntent = new Intent(getApplicationContext(),Login.class);
-                startActivity(loginIntent);
-
-            }
-        });
     }
 
     public void signupClick() {

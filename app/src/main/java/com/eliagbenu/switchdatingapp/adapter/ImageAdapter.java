@@ -21,10 +21,7 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.pic_3, R.drawable.pic_4,
             R.drawable.pic_5, R.drawable.pic_6,
             R.drawable.pic_7, R.drawable.pic_8,
-            R.drawable.pic_9, R.drawable.pic_10,
-            R.drawable.pic_11, R.drawable.pic_12,
-            R.drawable.pic_13, R.drawable.pic_14,
-            R.drawable.pic_15
+            R.drawable.pic_9, R.drawable.pic_10
     };
 
     // Constructor
