@@ -241,8 +241,9 @@ public class Suitors extends ActionBarActivity {
             profileScreen();
             return true;
         }
-        if (id == R.id.action_questions) {
-            questionsScreen();
+
+        if (id == R.id.action_ask_question) {
+            askQuestionsScreen();
             return true;
         }
 
@@ -254,9 +255,11 @@ public class Suitors extends ActionBarActivity {
         startActivity(profileIntent);
     }
 
-    public void questionsScreen(){
-        Intent questionsIntent = new Intent(this,Questions.class);
+    public void askQuestionsScreen(){
+        Intent questionsIntent = new Intent(this,AskQuestion.class);
         startActivity(questionsIntent);
     }
+
+
 }
 

@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eliagbenu.switchdatingapp" >
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".controller.AppController"
         android:allowBackup="true"
@@ -55,6 +56,18 @@
         <activity
             android:name=".views.Initial"
             android:label="@string/title_activity_initial" >
+        </activity>
+        <activity
+            android:name=".views.AskQuestion"
+            android:label="@string/title_activity_ask_question" >
+        </activity>
+        <activity
+            android:name=".views.Candidates"
+            android:label="@string/title_activity_candidates" >
+        </activity>
+        <activity
+            android:name=".views.FullImageActivity"
+            android:label="@string/title_activity_full_image" >
         </activity>
     </application>
 

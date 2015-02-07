@@ -1,14 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.eliagbenu.switchdatingapp.views.Suitors">
-
+    tools:context="com.eliagbenu.switchdatingapp.views.Candidates">
 
     <item android:id="@+id/action_profile"
         android:title="@string/action_profile" >
     </item>
 
-    <item android:id="@+id/action_ask_question"
-        android:title="@string/action_ask_question" >
+    <item android:id="@+id/action_questions"
+        android:title="@string/action_questions" >
     </item>
+
 </menu>

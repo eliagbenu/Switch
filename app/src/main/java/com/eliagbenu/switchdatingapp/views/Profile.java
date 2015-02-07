@@ -41,6 +41,7 @@ public class Profile extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_profile);
 
         textSwitchStatus = (TextView) findViewById(R.id.textSwitchStatus);
@@ -102,10 +103,12 @@ public class Profile extends FragmentActivity {
 
         String gender = settings.getString("gender","");
 
-        if (!gender.isEmpty() && gender=="MALE"){
-            genderStatus=true;
-        }else if(!gender.isEmpty() && gender=="FEMALE"){
-            genderStatus=false;
+        if (gender.equalsIgnoreCase("MALE") ){
+            genderStatus = true;
+        }else if(gender.equalsIgnoreCase("FEMALE") ){
+            genderStatus = false;
+        }else{
+            genderStatus = false;
         }
 
 
@@ -121,11 +124,25 @@ public class Profile extends FragmentActivity {
             public void onClick(View arg0) {
 
                 saveProfile();
-                Intent saveIntent = new Intent(getApplicationContext(),Suitors.class);
-                startActivity(saveIntent);
+
+                activityBasedOnGender();
             }
         });
     }
+
+    public void activityBasedOnGender()
+    {
+        if(getGender()){
+            Intent saveIntent = new Intent(getApplicationContext(),Candidates.class);
+            startActivity(saveIntent);
+        }else{
+            Intent saveIntent = new Intent(getApplicationContext(),Suitors.class);
+            startActivity(saveIntent);
+        }
+
+    }
+
+
 
     public void cancelClick() {
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
@@ -133,8 +150,9 @@ public class Profile extends FragmentActivity {
         buttonCancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent cancelIntent = new Intent(getApplicationContext(),Suitors.class);
-                startActivity(cancelIntent);
+
+                activityBasedOnGender();
+
             }
         });
     }

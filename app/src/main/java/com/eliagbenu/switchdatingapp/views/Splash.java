@@ -20,7 +20,7 @@ public class Splash extends ActionBarActivity {
     AppController appController;
     boolean signedUpStatus;
     private static int SPLASH_TIME_OUT = 3000;
-    Intent launchSuitorsActivity;
+    Intent launchProfileActivity;
     Intent launchNextActivity;
     boolean signUpStatus;
 
@@ -52,8 +52,8 @@ public class Splash extends ActionBarActivity {
         if(signedUpStatus){
 
             //user already has acct, mv to suitors page
-            launchSuitorsActivity = new Intent(getApplicationContext(), Suitors.class);
-            startActivity(launchSuitorsActivity);
+            launchProfileActivity = new Intent(getApplicationContext(), Profile.class);
+            startActivity(launchProfileActivity);
             finish();
         }else{
             //user displays splash

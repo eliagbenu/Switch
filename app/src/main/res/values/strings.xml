@@ -55,6 +55,11 @@
     <string name="her_pitch">Message for you</string>
     <string name="response_here">Response comes here</string>
     <string name="question_here">Submit your question here</string>
+    <string name="ask_question">Pose a question to your suitors</string>
     <string name="privacy_info">We protect your privacy. No information will be shared or posted.</string>
+    <string name="title_activity_ask_question">AskQuestion</string>
+    <string name="action_ask_question">Pose a question</string>
+    <string name="title_activity_candidates">Candidates</string>
+    <string name="title_activity_full_image">FullImageActivity</string>
 
 </resources>

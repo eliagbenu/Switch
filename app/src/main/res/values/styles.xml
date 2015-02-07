@@ -14,7 +14,7 @@
         <item name="android:windowBackground">@color/color_1</item>
         <item name="android:colorBackground">@color/color_1</item>
         <item name="android:editTextBackground">@color/color_3</item>
-        <item name="android:textColor">@color/color_3</item>
+        <item name="android:textColor">@color/color_5</item>
         <item name="android:windowActionBar">false</item>
 
 
