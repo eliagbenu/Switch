@@ -61,5 +61,7 @@
     <string name="action_ask_question">Pose a question</string>
     <string name="title_activity_candidates">Candidates</string>
     <string name="title_activity_full_image">FullImageActivity</string>
+    <string name="like">Like</string>
+    <string name="pass">Pass</string>
 
 </resources>
